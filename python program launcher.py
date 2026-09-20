@@ -3,9 +3,10 @@ import os
 import time
 import random
 while True:
-    user = input("type start to begin> ") # user is the first used input this controls the power on/off and first help menu
+    print("-h for help")
+    user = input("type start to begin> ") # user is the first used input, this controls the power on/off and first help menu
     if user == "-h":
-        print("this is the help menu type in start to run")
+        print("this is the help menu type in start to run or powerdown to exit")
     elif user == "powerdown":
         exit()
     elif user == "hello":
@@ -14,15 +15,22 @@ while True:
         print("info menu made by INABOT#8377 all code made by INABOT#8377")
     if user == "start":
         print(fig.figlet_format("HELLO", font="dos_rebel"))
+        time.sleep(0.5)
+        print("write -h for help")
+        print(fig.figlet_format("LOADING", font="small"))
+        time.sleep(2)
         while True:
-                usrinput = input("please write the name of your application> ") # usrinput controls the booting up of programs, this is the main part of the script
+                usrinput = input("please write the name of your application or a menu> ") # usrinput controls the booting up of programs, this is the main part of the script
                 if usrinput == "powerdown":
                     break
                 if usrinput == "clear":
                     os.system("cls") # cls is windows only, linux version maybe
                     continue
+                elif usrinput == "ip":
+                    os.system("ipconfig")
+                    continue
                 elif usrinput == "steam":
-                    steampath = input("write in you path to steam")
+                    steampath = input("write in you path to steam> ")
                     if os.path.exists(steampath): # os startfile is windows only, linux version maybe
                         os.startfile(steampath)
                         print("steam starting")
@@ -73,7 +81,7 @@ while True:
                         if usrcoin == "end":
                             print(fig.figlet_format("Restart", font="dos_rebel")) # dev note, this is outdated but still works
                             break
-                    if usrinput == "file maker":
+                    elif usrinput == "file maker":
                         select_mode = input("plese sellect a mode> ")
                         if select_mode == "write new":
                             usr_write_name = input("please write your file name> ")
@@ -90,6 +98,8 @@ while True:
                                     print(fig.figlet_format("DONE", font="mini"))
                                     time.sleep(0.2)
                                     print(contents)
+                                    time.sleep(4)
+                                    continue
                             except FileNotFoundError:
                                 print("ERROR")
                                 time.sleep(1)
@@ -97,13 +107,26 @@ while True:
                                 time.sleep(1)
                                 break
                             else:
-                                print(fig.figlet_format("DONE", font="dos_re"))
+                                print(fig.figlet_format("DONE", font="dos_rebel"))
                             usrend = input("type end to stop or enter to write again> ")
                             if usrend == "end":
                                 break
                         else:
                             break
+                    elif usrinput == "free":
+                        usrfree = input("write anything here or type end to stop> ")
+                        if usrfree == "end":
+                            break
+                    elif usrinput== "-h":
+                        print('type in "file maker" for a notepad, "coinflip" for a game, "steam" to open steam or "calculator" to open a calculator')
+                        print('or "powerdown" to close, IMPORTANT, "end" is allwase the code to end a program')
+                        time.sleep(6)
+                        break
                     else:
                         print(fig.figlet_format("ERROR INPUT A NAME ", font="small"))
-                        break # error fixed from the clear command with continue at the end
+                        time.sleep(3)
+                        os.system("cls")
+                        break
+
+                    # error fixed from the clear command with continue at the end
                     # new code goes here, dont forget to add a break at the end and the program will automatically restart so core while Trues do nothing
