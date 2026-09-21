@@ -107,7 +107,7 @@ while True:
                                 time.sleep(1)
                                 break
                             else:
-                                print(fig.figlet_format("DONE", font="dos_rebel"))
+                                print(fig.figlet_format("DONE", font="dos_re"))
                             usrend = input("type end to stop or enter to write again> ")
                             if usrend == "end":
                                 break
@@ -124,8 +124,6 @@ while True:
                         break
                     else:
                         print(fig.figlet_format("ERROR INPUT A NAME ", font="small"))
-                        time.sleep(3)
-                        os.system("cls")
                         break
 
                     # error fixed from the clear command with continue at the end
